@@ -1,0 +1,653 @@
+{
+ "title": "Charlotte Mason",
+ "books": [
+  {
+   "id": "v1",
+   "vol": "I",
+   "title": "Home Education",
+   "subtitle": "Volume I",
+   "chapters": [
+    {
+     "id": "v1-02-epigraph-dante-purgatorio-i",
+     "group": "Front matter",
+     "title": "Epigraph (Dante, Purgatorio I)",
+     "file": "/mason-audio-v1/v1-02-epigraph-dante-purgatorio-i.m4a",
+     "bytes": 492682,
+     "dur": 64.55
+    },
+    {
+     "id": "v1-03-preface-to-the-home-education-series",
+     "group": "Front matter",
+     "title": "Preface to the Home Education Series",
+     "file": "/mason-audio-v1/v1-03-preface-to-the-home-education-series.m4a",
+     "bytes": 6114100,
+     "dur": 756.23
+    },
+    {
+     "id": "v1-04-preface-to-the-fourth-edition",
+     "group": "Front matter",
+     "title": "Preface to the Fourth Edition",
+     "file": "/mason-audio-v1/v1-04-preface-to-the-fourth-edition.m4a",
+     "bytes": 1714293,
+     "dur": 212.6
+    },
+    {
+     "id": "v1-06-part1-some-preliminary-considerations",
+     "group": "Part I. Some Preliminary Considerations",
+     "title": "Some Preliminary Considerations",
+     "file": "/mason-audio-v1/v1-06-part1-some-preliminary-considerations.m4a",
+     "bytes": 4189007,
+     "dur": 515.37
+    },
+    {
+     "id": "v1-07-part1-ch01-a-method-of-education",
+     "group": "Part I. Some Preliminary Considerations",
+     "title": "Chapter I: A Method of Education",
+     "file": "/mason-audio-v1/v1-07-part1-ch01-a-method-of-education.m4a",
+     "bytes": 3952633,
+     "dur": 488.66
+    },
+    {
+     "id": "v1-08-part1-ch02-the-childs-estate",
+     "group": "Part I. Some Preliminary Considerations",
+     "title": "Chapter II: The Child’s Estate",
+     "file": "/mason-audio-v1/v1-08-part1-ch02-the-childs-estate.m4a",
+     "bytes": 1782795,
+     "dur": 221.66
+    },
+    {
+     "id": "v1-09-part1-ch03-offending-the-children",
+     "group": "Part I. Some Preliminary Considerations",
+     "title": "Chapter III: Offending the Children",
+     "file": "/mason-audio-v1/v1-09-part1-ch03-offending-the-children.m4a",
+     "bytes": 3711151,
+     "dur": 457.79
+    },
+    {
+     "id": "v1-10-part1-ch04-despising-the-children",
+     "group": "Part I. Some Preliminary Considerations",
+     "title": "Chapter IV: Despising the Children",
+     "file": "/mason-audio-v1/v1-10-part1-ch04-despising-the-children.m4a",
+     "bytes": 1755912,
+     "dur": 216.4
+    },
+    {
+     "id": "v1-11-part1-ch05-hindering-the-children",
+     "group": "Part I. Some Preliminary Considerations",
+     "title": "Chapter V: Hindering the Children",
+     "file": "/mason-audio-v1/v1-11-part1-ch05-hindering-the-children.m4a",
+     "bytes": 838880,
+     "dur": 105.81
+    },
+    {
+     "id": "v1-12-part1-ch06-conditions-of-healthy-brain-activity",
+     "group": "Part I. Some Preliminary Considerations",
+     "title": "Chapter VI: Conditions of Healthy Brain-activity",
+     "file": "/mason-audio-v1/v1-12-part1-ch06-conditions-of-healthy-brain-activity.m4a",
+     "bytes": 14540782,
+     "dur": 1788.83
+    },
+    {
+     "id": "v1-13-part1-ch07-the-reign-of-law-in-education",
+     "group": "Part I. Some Preliminary Considerations",
+     "title": "Chapter VII: ‘The Reign of Law’ in Education",
+     "file": "/mason-audio-v1/v1-13-part1-ch07-the-reign-of-law-in-education.m4a",
+     "bytes": 2991111,
+     "dur": 369.23
+    },
+    {
+     "id": "v1-14-part2-ch01-a-growing-time",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter I: A Growing Time",
+     "file": "/mason-audio-v1/v1-14-part2-ch01-a-growing-time.m4a",
+     "bytes": 2918733,
+     "dur": 360.08
+    },
+    {
+     "id": "v1-15-part2-ch02-sight-seeing",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter II: ‘Sight-seeing’",
+     "file": "/mason-audio-v1/v1-15-part2-ch02-sight-seeing.m4a",
+     "bytes": 1826132,
+     "dur": 227.24
+    },
+    {
+     "id": "v1-16-part2-ch03-picture-painting",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter III: ‘Picture-painting’",
+     "file": "/mason-audio-v1/v1-16-part2-ch03-picture-painting.m4a",
+     "bytes": 2431319,
+     "dur": 303.25
+    },
+    {
+     "id": "v1-17-part2-ch04-flowers-and-trees",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter IV: Flowers and Trees",
+     "file": "/mason-audio-v1/v1-17-part2-ch04-flowers-and-trees.m4a",
+     "bytes": 4053843,
+     "dur": 502.64
+    },
+    {
+     "id": "v1-18-part2-ch05-living-creatures",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter V: ‘Living Creatures’",
+     "file": "/mason-audio-v1/v1-18-part2-ch05-living-creatures.m4a",
+     "bytes": 5482964,
+     "dur": 672.73
+    },
+    {
+     "id": "v1-19-part2-ch06-field-lore-and-naturalists-books",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter VI: Field-lore and Naturalists’ Books",
+     "file": "/mason-audio-v1/v1-19-part2-ch06-field-lore-and-naturalists-books.m4a",
+     "bytes": 2091397,
+     "dur": 260.72
+    },
+    {
+     "id": "v1-20-part2-ch07-the-child-gets-knowledge-by-means-of-his-senses",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter VII: The Child Gets Knowledge by Means of His Senses",
+     "file": "/mason-audio-v1/v1-20-part2-ch07-the-child-gets-knowledge-by-means-of-his-senses.m4a",
+     "bytes": 3851159,
+     "dur": 474.71
+    },
+    {
+     "id": "v1-21-part2-ch08-the-child-should-be-made-familiar-with-natural-objects",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter VIII: The Child Should Be Made Familiar with Natural Objects",
+     "file": "/mason-audio-v1/v1-21-part2-ch08-the-child-should-be-made-familiar-with-natural-objects.m4a",
+     "bytes": 1825273,
+     "dur": 227.14
+    },
+    {
+     "id": "v1-22-part2-ch09-out-of-door-geography",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter IX: Out-of-door Geography",
+     "file": "/mason-audio-v1/v1-22-part2-ch09-out-of-door-geography.m4a",
+     "bytes": 5079003,
+     "dur": 631.07
+    },
+    {
+     "id": "v1-23-part2-ch10-the-child-and-mother-nature",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter X: The Child and Mother-nature",
+     "file": "/mason-audio-v1/v1-23-part2-ch10-the-child-and-mother-nature.m4a",
+     "bytes": 1520941,
+     "dur": 190.5
+    },
+    {
+     "id": "v1-24-part2-ch11-out-of-door-games-etc",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter XI: Out-of-door Games, Etc",
+     "file": "/mason-audio-v1/v1-24-part2-ch11-out-of-door-games-etc.m4a",
+     "bytes": 4087883,
+     "dur": 503.2
+    },
+    {
+     "id": "v1-25-part2-ch12-walks-in-bad-weather",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter XII: Walks in Bad Weather",
+     "file": "/mason-audio-v1/v1-25-part2-ch12-walks-in-bad-weather.m4a",
+     "bytes": 2909775,
+     "dur": 365.59
+    },
+    {
+     "id": "v1-26-part2-ch13-red-indian-life",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter XIII: ‘Red Indian’ Life",
+     "file": "/mason-audio-v1/v1-26-part2-ch13-red-indian-life.m4a",
+     "bytes": 3346031,
+     "dur": 412.72
+    },
+    {
+     "id": "v1-27-part2-ch14-the-children-require-country-air",
+     "group": "Part II. Out-of-door Life for the Children",
+     "title": "Chapter XIV: The Children Require Country Air",
+     "file": "/mason-audio-v1/v1-27-part2-ch14-the-children-require-country-air.m4a",
+     "bytes": 2285289,
+     "dur": 283.73
+    },
+    {
+     "id": "v1-28-part3-ch01-education-based-upon-natural-law",
+     "group": "Part III. ‘Habit is Ten Natures’",
+     "title": "Chapter I: Education Based Upon Natural Law",
+     "file": "/mason-audio-v1/v1-28-part3-ch01-education-based-upon-natural-law.m4a",
+     "bytes": 1421249,
+     "dur": 177.29
+    },
+    {
+     "id": "v1-29-part3-ch02-the-children-have-no-self-compelling-power",
+     "group": "Part III. ‘Habit is Ten Natures’",
+     "title": "Chapter II: The Children Have No Self-compelling Power",
+     "file": "/mason-audio-v1/v1-29-part3-ch02-the-children-have-no-self-compelling-power.m4a",
+     "bytes": 1996499,
+     "dur": 247.64
+    },
+    {
+     "id": "v1-30-part3-ch03-what-is-nature",
+     "group": "Part III. ‘Habit is Ten Natures’",
+     "title": "Chapter III: What is ‘Nature’?",
+     "file": "/mason-audio-v1/v1-30-part3-ch03-what-is-nature.m4a",
+     "bytes": 3884206,
+     "dur": 486.45
+    },
+    {
+     "id": "v1-31-part3-ch04-habit-may-supplant-nature",
+     "group": "Part III. ‘Habit is Ten Natures’",
+     "title": "Chapter IV: Habit May Supplant ‘Nature’",
+     "file": "/mason-audio-v1/v1-31-part3-ch04-habit-may-supplant-nature.m4a",
+     "bytes": 2333418,
+     "dur": 290.77
+    },
+    {
+     "id": "v1-32-part3-ch05-the-laying-down-of-lines-of-habit",
+     "group": "Part III. ‘Habit is Ten Natures’",
+     "title": "Chapter V: The Laying Down of Lines of Habit",
+     "file": "/mason-audio-v1/v1-32-part3-ch05-the-laying-down-of-lines-of-habit.m4a",
+     "bytes": 3524865,
+     "dur": 434.32
+    },
+    {
+     "id": "v1-33-part3-ch06-the-physiology-of-habit",
+     "group": "Part III. ‘Habit is Ten Natures’",
+     "title": "Chapter VI: The Physiology of Habit",
+     "file": "/mason-audio-v1/v1-33-part3-ch06-the-physiology-of-habit.m4a",
+     "bytes": 6186892,
+     "dur": 761.67
+    },
+    {
+     "id": "v1-34-part3-ch07-the-forming-of-a-habit-shut-the-door-after-you",
+     "group": "Part III. ‘Habit is Ten Natures’",
+     "title": "Chapter VII: The Forming of a Habit--‘shut the Door After You’",
+     "file": "/mason-audio-v1/v1-34-part3-ch07-the-forming-of-a-habit-shut-the-door-after-you.m4a",
+     "bytes": 4716098,
+     "dur": 584.95
+    },
+    {
+     "id": "v1-35-part3-ch08-infant-habits",
+     "group": "Part III. ‘Habit is Ten Natures’",
+     "title": "Chapter VIII: Infant ‘Habits’",
+     "file": "/mason-audio-v1/v1-35-part3-ch08-infant-habits.m4a",
+     "bytes": 6379540,
+     "dur": 787.28
+    },
+    {
+     "id": "v1-36-part3-ch09-physical-exercises",
+     "group": "Part III. ‘Habit is Ten Natures’",
+     "title": "Chapter IX: Physical Exercises",
+     "file": "/mason-audio-v1/v1-36-part3-ch09-physical-exercises.m4a",
+     "bytes": 1773179,
+     "dur": 221.97
+    },
+    {
+     "id": "v1-37-part4-some-habits-of-mind-some-moral-habits",
+     "group": "Part IV. Some Habits of Mind, Some Moral Habits",
+     "title": "Some Habits of Mind--some Moral Habits",
+     "file": "/mason-audio-v1/v1-37-part4-some-habits-of-mind-some-moral-habits.m4a",
+     "bytes": 1791263,
+     "dur": 223.15
+    },
+    {
+     "id": "v1-38-part4-ch01-the-habit-of-attention",
+     "group": "Part IV. Some Habits of Mind, Some Moral Habits",
+     "title": "Chapter I: The Habit of Attention",
+     "file": "/mason-audio-v1/v1-38-part4-ch01-the-habit-of-attention.m4a",
+     "bytes": 10445091,
+     "dur": 1286.0
+    },
+    {
+     "id": "v1-39-part4-ch02-the-habits-of-application-etc",
+     "group": "Part IV. Some Habits of Mind, Some Moral Habits",
+     "title": "Chapter II: The Habits of Application, Etc",
+     "file": "/mason-audio-v1/v1-39-part4-ch02-the-habits-of-application-etc.m4a",
+     "bytes": 512629,
+     "dur": 66.31
+    },
+    {
+     "id": "v1-40-part4-ch03-the-habit-of-thinking",
+     "group": "Part IV. Some Habits of Mind, Some Moral Habits",
+     "title": "Chapter III: The Habit of Thinking",
+     "file": "/mason-audio-v1/v1-40-part4-ch03-the-habit-of-thinking.m4a",
+     "bytes": 1156348,
+     "dur": 143.26
+    },
+    {
+     "id": "v1-41-part4-ch04-the-habit-of-imagining",
+     "group": "Part IV. Some Habits of Mind, Some Moral Habits",
+     "title": "Chapter IV: The Habit of Imagining",
+     "file": "/mason-audio-v1/v1-41-part4-ch04-the-habit-of-imagining.m4a",
+     "bytes": 2499222,
+     "dur": 310.52
+    },
+    {
+     "id": "v1-42-part4-ch05-the-habit-of-remembering",
+     "group": "Part IV. Some Habits of Mind, Some Moral Habits",
+     "title": "Chapter V: The Habit of Remembering",
+     "file": "/mason-audio-v1/v1-42-part4-ch05-the-habit-of-remembering.m4a",
+     "bytes": 3960657,
+     "dur": 489.66
+    },
+    {
+     "id": "v1-43-part4-ch06-the-habit-of-perfect-execution",
+     "group": "Part IV. Some Habits of Mind, Some Moral Habits",
+     "title": "Chapter VI: The Habit of Perfect Execution",
+     "file": "/mason-audio-v1/v1-43-part4-ch06-the-habit-of-perfect-execution.m4a",
+     "bytes": 1187972,
+     "dur": 147.64
+    },
+    {
+     "id": "v1-44-part4-ch07-some-moral-habits-obedience",
+     "group": "Part IV. Some Habits of Mind, Some Moral Habits",
+     "title": "Chapter VII: Some Moral Habits--obedience",
+     "file": "/mason-audio-v1/v1-44-part4-ch07-some-moral-habits-obedience.m4a",
+     "bytes": 3285924,
+     "dur": 406.05
+    },
+    {
+     "id": "v1-45-part4-ch08-truthfulness",
+     "group": "Part IV. Some Habits of Mind, Some Moral Habits",
+     "title": "Chapter VIII: Truthfulness",
+     "file": "/mason-audio-v1/v1-45-part4-ch08-truthfulness.m4a",
+     "bytes": 3498314,
+     "dur": 436.76
+    },
+    {
+     "id": "v1-46-part5-ch01-the-matter-and-method-of-lessons",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter I: The Matter and Method of Lessons",
+     "file": "/mason-audio-v1/v1-46-part5-ch01-the-matter-and-method-of-lessons.m4a",
+     "bytes": 7656791,
+     "dur": 950.58
+    },
+    {
+     "id": "v1-47-part5-ch02-the-kindergarten-as-a-place-of-education",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter II: The Kindergarten as a Place of Education",
+     "file": "/mason-audio-v1/v1-47-part5-ch02-the-kindergarten-as-a-place-of-education.m4a",
+     "bytes": 3163602,
+     "dur": 390.85
+    },
+    {
+     "id": "v1-48-part5-ch03-further-consideration-of-the-kindergarten",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter III: Further Consideration of the Kindergarten",
+     "file": "/mason-audio-v1/v1-48-part5-ch03-further-consideration-of-the-kindergarten.m4a",
+     "bytes": 14605129,
+     "dur": 1798.44
+    },
+    {
+     "id": "v1-49-part5-ch04-reading",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter IV: Reading",
+     "file": "/mason-audio-v1/v1-49-part5-ch04-reading.m4a",
+     "bytes": 6937972,
+     "dur": 859.57
+    },
+    {
+     "id": "v1-50-part5-ch05-the-first-reading-lesson",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter V: The First Reading Lesson",
+     "file": "/mason-audio-v1/v1-50-part5-ch05-the-first-reading-lesson.m4a",
+     "bytes": 5191962,
+     "dur": 650.05
+    },
+    {
+     "id": "v1-51-part5-ch06-reading-by-sight-and-by-sound",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter VI: Reading by Sight and by Sound",
+     "file": "/mason-audio-v1/v1-51-part5-ch06-reading-by-sight-and-by-sound.m4a",
+     "bytes": 6893605,
+     "dur": 850.65
+    },
+    {
+     "id": "v1-52-part5-ch07-recitation",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter VII: Recitation",
+     "file": "/mason-audio-v1/v1-52-part5-ch07-recitation.m4a",
+     "bytes": 3405678,
+     "dur": 417.09
+    },
+    {
+     "id": "v1-53-part5-ch08-reading-for-older-children",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter VIII: Reading for Older Children",
+     "file": "/mason-audio-v1/v1-53-part5-ch08-reading-for-older-children.m4a",
+     "bytes": 3514064,
+     "dur": 438.03
+    },
+    {
+     "id": "v1-54-part5-ch09-the-art-of-narrating",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter IX: The Art of Narrating",
+     "file": "/mason-audio-v1/v1-54-part5-ch09-the-art-of-narrating.m4a",
+     "bytes": 2265472,
+     "dur": 281.0
+    },
+    {
+     "id": "v1-55-part5-ch10-writing",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter X: Writing",
+     "file": "/mason-audio-v1/v1-55-part5-ch10-writing.m4a",
+     "bytes": 3828905,
+     "dur": 472.33
+    },
+    {
+     "id": "v1-56-part5-ch11-transcription",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XI: Transcription",
+     "file": "/mason-audio-v1/v1-56-part5-ch11-transcription.m4a",
+     "bytes": 1656490,
+     "dur": 210.64
+    },
+    {
+     "id": "v1-57-part5-ch12-spelling-and-dictation",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XII: Spelling and Dictation",
+     "file": "/mason-audio-v1/v1-57-part5-ch12-spelling-and-dictation.m4a",
+     "bytes": 2500210,
+     "dur": 309.52
+    },
+    {
+     "id": "v1-58-part5-ch13-composition",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XIII: Composition",
+     "file": "/mason-audio-v1/v1-58-part5-ch13-composition.m4a",
+     "bytes": 3591618,
+     "dur": 455.58
+    },
+    {
+     "id": "v1-59-part5-ch14-bible-lessons",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XIV: Bible Lessons",
+     "file": "/mason-audio-v1/v1-59-part5-ch14-bible-lessons.m4a",
+     "bytes": 5202869,
+     "dur": 639.39
+    },
+    {
+     "id": "v1-60-part5-ch15-arithmetic",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XV: Arithmetic",
+     "file": "/mason-audio-v1/v1-60-part5-ch15-arithmetic.m4a",
+     "bytes": 9172093,
+     "dur": 1130.33
+    },
+    {
+     "id": "v1-61-part5-ch16-natural-philosophy",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XVI: Natural Philosophy",
+     "file": "/mason-audio-v1/v1-61-part5-ch16-natural-philosophy.m4a",
+     "bytes": 6392951,
+     "dur": 782.87
+    },
+    {
+     "id": "v1-62-part5-ch17-geography",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XVII: Geography",
+     "file": "/mason-audio-v1/v1-62-part5-ch17-geography.m4a",
+     "bytes": 6431493,
+     "dur": 795.06
+    },
+    {
+     "id": "v1-63-part5-ch18-history",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XVIII: History",
+     "file": "/mason-audio-v1/v1-63-part5-ch18-history.m4a",
+     "bytes": 13415868,
+     "dur": 1646.18
+    },
+    {
+     "id": "v1-64-part5-ch19-grammar",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XIX: Grammar",
+     "file": "/mason-audio-v1/v1-64-part5-ch19-grammar.m4a",
+     "bytes": 3632900,
+     "dur": 478.06
+    },
+    {
+     "id": "v1-65-part5-ch20-french",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XX: French",
+     "file": "/mason-audio-v1/v1-65-part5-ch20-french.m4a",
+     "bytes": 5567806,
+     "dur": 685.45
+    },
+    {
+     "id": "v1-66-part5-ch21-pictorial-art",
+     "group": "Part V. Lessons as Instruments of Education",
+     "title": "Chapter XXI: Pictorial Art",
+     "file": "/mason-audio-v1/v1-66-part5-ch21-pictorial-art.m4a",
+     "bytes": 7110317,
+     "dur": 888.06
+    },
+    {
+     "id": "v1-67-part6-ch01-the-will",
+     "group": "Part VI. The Will, The Conscience, The Divine Life in the Child",
+     "title": "Chapter I: The Will",
+     "file": "/mason-audio-v1/v1-67-part6-ch01-the-will.m4a",
+     "bytes": 10457529,
+     "dur": 1295.63
+    },
+    {
+     "id": "v1-68-part6-ch02-the-conscience",
+     "group": "Part VI. The Will, The Conscience, The Divine Life in the Child",
+     "title": "Chapter II: The Conscience",
+     "file": "/mason-audio-v1/v1-68-part6-ch02-the-conscience.m4a",
+     "bytes": 9535547,
+     "dur": 1173.65
+    },
+    {
+     "id": "v1-69-part6-ch03-the-divine-life-in-the-child",
+     "group": "Part VI. The Will, The Conscience, The Divine Life in the Child",
+     "title": "Chapter III: The Divine Life in the Child",
+     "file": "/mason-audio-v1/v1-69-part6-ch03-the-divine-life-in-the-child.m4a",
+     "bytes": 9749307,
+     "dur": 1203.48
+    }
+   ]
+  },
+  {
+   "id": "v2",
+   "vol": "II",
+   "title": "Parents and Children",
+   "subtitle": "Volume II",
+   "chapters": [
+    {
+     "id": "v2-02-preface",
+     "group": "Front matter",
+     "title": "Preface",
+     "file": "/mason-audio-v2/v2-02-preface.m4a",
+     "bytes": 871886,
+     "dur": 107.99
+    },
+    {
+     "id": "v2-04-book1-ch01-the-family",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter I: The Family",
+     "file": "/mason-audio-v2/v2-04-book1-ch01-the-family.m4a",
+     "bytes": 7047044,
+     "dur": 859.74
+    },
+    {
+     "id": "v2-05-book1-ch02-parents-as-rulers",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter II: Parents as Rulers",
+     "file": "/mason-audio-v2/v2-05-book1-ch02-parents-as-rulers.m4a",
+     "bytes": 6553457,
+     "dur": 803.62
+    },
+    {
+     "id": "v2-06-book1-ch03-parents-as-inspirers",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter III: Parents as Inspirers",
+     "file": "/mason-audio-v2/v2-06-book1-ch03-parents-as-inspirers.m4a",
+     "bytes": 7334999,
+     "dur": 899.83
+    },
+    {
+     "id": "v2-07-book1-ch04-parents-as-inspirers",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter IV: Parents as Inspirers",
+     "file": "/mason-audio-v2/v2-07-book1-ch04-parents-as-inspirers.m4a",
+     "bytes": 8835211,
+     "dur": 1082.92
+    },
+    {
+     "id": "v2-08-book1-ch05-parents-as-inspirers",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter V: Parents as Inspirers",
+     "file": "/mason-audio-v2/v2-08-book1-ch05-parents-as-inspirers.m4a",
+     "bytes": 6863861,
+     "dur": 836.13
+    },
+    {
+     "id": "v2-09-book1-ch06-parents-as-inspirers",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter VI: Parents as Inspirers",
+     "file": "/mason-audio-v2/v2-09-book1-ch06-parents-as-inspirers.m4a",
+     "bytes": 7707032,
+     "dur": 942.36
+    },
+    {
+     "id": "v2-10-book1-ch07-the-parent-as-schoolmaster",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter VII: The Parent as Schoolmaster",
+     "file": "/mason-audio-v2/v2-10-book1-ch07-the-parent-as-schoolmaster.m4a",
+     "bytes": 6324362,
+     "dur": 775.8
+    },
+    {
+     "id": "v2-11-book1-ch08-the-culture-of-character",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter VIII: The Culture of Character",
+     "file": "/mason-audio-v2/v2-11-book1-ch08-the-culture-of-character.m4a",
+     "bytes": 10262526,
+     "dur": 1253.66
+    },
+    {
+     "id": "v2-12-book1-ch09-the-culture-of-character",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter IX: The Culture of Character",
+     "file": "/mason-audio-v2/v2-12-book1-ch09-the-culture-of-character.m4a",
+     "bytes": 7142154,
+     "dur": 870.39
+    },
+    {
+     "id": "v2-13-book1-ch10-bible-lessons",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter X: Bible Lessons",
+     "file": "/mason-audio-v2/v2-13-book1-ch10-bible-lessons.m4a",
+     "bytes": 6443818,
+     "dur": 788.89
+    },
+    {
+     "id": "v2-14-book1-ch11-faith-and-duty",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter XI: Faith and Duty",
+     "file": "/mason-audio-v2/v2-14-book1-ch11-faith-and-duty.m4a",
+     "bytes": 12694509,
+     "dur": 1548.34
+    }
+   ]
+  }
+ ]
+}

@@ -1124,6 +1124,28 @@
      ]
     }
    ]
+  },
+  {
+   "id": "s7",
+   "name": "Soft British",
+   "books": [
+    {
+     "id": "v1",
+     "vol": "I",
+     "title": "Home Education",
+     "subtitle": "Volume I",
+     "chapters": [
+      {
+       "id": "v1-06-part1-some-preliminary-considerations",
+       "group": "Part I. Some Preliminary Considerations",
+       "title": "Some Preliminary Considerations",
+       "file": "/mason-audio-s7-v1/v1-06-part1-some-preliminary-considerations.m4a",
+       "bytes": 4129126,
+       "dur": 512.22
+      }
+     ]
+    }
+   ]
   }
  ]
 }

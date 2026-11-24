@@ -16,6 +16,13 @@ let flat = [];
 let cur = null;
 let lastSave = 0;
 let seeking = false;
+let ready = false;                                // the file of cur is loaded and at its saved place: only then a save
+let VOICES = [];                                  // library.json "voices" (John 11/23/2026: S1 and S7 next to Voice 5)
+let voice = null;                                 // the voice in use; the first voice keeps the old storage keys
+function isFirst() { return !VOICES.length || voice === VOICES[0].id; }
+function pkey(id) { return (isFirst() ? "pos:" : "pos:" + voice + ":") + id; }
+function lastKey() { return isFirst() ? "last" : "last:" + voice; }
+function books() { const v = VOICES.find((x) => x.id === voice); return v ? v.books : []; }
 
 function fmt(s) {
   s = Math.max(0, Math.floor(s || 0));
@@ -23,7 +30,7 @@ function fmt(s) {
   return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(x).padStart(2, "0");
 }
 function mins(s) { return s >= 3600 ? (s / 3600).toFixed(1) + " h" : Math.max(1, Math.round(s / 60)) + " min"; }
-function pos(id) { return store.get("pos:" + id, { t: 0, done: false }); }
+function pos(id) { return store.get(pkey(id), { t: 0, done: false }); }
 function msg(t) { $("#msg").textContent = t || ""; }
 function rateNow() { const r = store.get("rate", 1); return RATES.includes(r) ? r : 1; }
 function markRate() {
@@ -43,7 +50,9 @@ function setRate(r) {
 }
 
 function marks() { return store.get("marks", []); }
-function link(c, t) { return location.origin + location.pathname + "#c=" + encodeURIComponent(c.id) + "&t=" + Math.floor(t); }
+function link(c, t) {
+  return location.origin + location.pathname + "#c=" + encodeURIComponent(c.id) + "&t=" + Math.floor(t) + (isFirst() ? "" : "&v=" + encodeURIComponent(voice));
+}
 async function share(c, t) {
   const url = link(c, t), text = `${c.title} (${c.book.title}) at ${fmt(t)}`;
   if (navigator.share) {
@@ -52,7 +61,7 @@ async function share(c, t) {
   try { await navigator.clipboard.writeText(url); msg("Link copied: " + text); } catch (e) { msg(url); }
 }
 function renderMarks() {
-  const list = marks().filter((m) => flat.some((c) => c.id === m.c));
+  const list = marks().filter((m) => (m.v || (VOICES[0] && VOICES[0].id)) === voice && flat.some((c) => c.id === m.c));
   const ul = $("#markList");
   ul.textContent = "";
   $("#marks").hidden = !list.length;
@@ -75,7 +84,7 @@ function render() {
   const wrap = $("#books");
   wrap.textContent = "";
   const open = store.get("open", {});
-  for (const b of window.LIB.books) {
+  for (const b of books()) {
     const d = document.createElement("details");
     d.className = "book";
     d.open = !!open[b.id];
@@ -112,7 +121,7 @@ function render() {
     }
     wrap.appendChild(d);
   }
-  const lastId = store.get("last", null);
+  const lastId = store.get(lastKey(), null);
   const last = flat.find((c) => c.id === lastId);
   if (last && !audio.getAttribute("src")) {
     const p = pos(last.id);
@@ -127,16 +136,16 @@ function render() {
 
 function next(c) { const i = flat.indexOf(c); return i >= 0 && i + 1 < flat.length ? flat[i + 1] : null; }
 
-function save(force) {
-  if (!cur || !isFinite(audio.currentTime)) return;
+function save(force) {                           // an emptied or new file reports time 0: that must not overwrite a saved place
+  if (!cur || !ready || audio.getAttribute("src") !== cur.file || !isFinite(audio.currentTime)) return;
   const now = Date.now();
   if (!force && now - lastSave < 5000) return;
   lastSave = now;
   const d = isFinite(audio.duration) ? audio.duration : cur.dur;
   const done = d > 0 && audio.currentTime >= d - 10;
   const old = pos(cur.id);
-  store.set("pos:" + cur.id, { t: done ? 0 : audio.currentTime, done: done || old.done, at: now });
-  store.set("last", cur.id);
+  store.set(pkey(cur.id), { t: done ? 0 : audio.currentTime, done: done || old.done, at: now });
+  store.set(lastKey(), cur.id);
 }
 
 function setSession() {
@@ -170,6 +179,7 @@ function start(c, play, atOverride) {
   const p = pos(c.id);
   const exact = atOverride != null;               // a bookmark or a shared link: that second
   const at = exact ? atOverride : p.done ? 0 : p.t || 0;
+  ready = false;
   audio.src = c.file;
   audio.preload = "auto";
   const rate = rateNow();
@@ -179,6 +189,7 @@ function start(c, play, atOverride) {
   audio.webkitPreservesPitch = true;
   const seekOnce = () => {
     audio.removeEventListener("loadedmetadata", seekOnce);
+    ready = true;
     if (at > (exact ? 0 : 1) && at < (audio.duration || c.dur) - (exact ? 0.5 : 5)) audio.currentTime = at;
     audio.playbackRate = rateNow();
     paint();
@@ -191,7 +202,7 @@ function start(c, play, atOverride) {
   $("#nowBook").textContent = c.book.title + " · " + c.book.subtitle;
   markRate();
   playIcon();
-  store.set("last", c.id);
+  store.set(lastKey(), c.id);
   setSession();
   render();
 }
@@ -205,6 +216,7 @@ function skip(d) {
 }
 
 function paint() {
+  if (!cur || audio.getAttribute("src") !== cur.file) return;      // no file of cur loaded: keep the saved place on screen
   const d = isFinite(audio.duration) ? audio.duration : (cur ? cur.dur : 0);
   if (!seeking) $("#seek").value = d ? Math.round((1000 * audio.currentTime) / d) : 0;
   $("#tCur").textContent = fmt(audio.currentTime);
@@ -230,9 +242,9 @@ $("#next").addEventListener("click", () => { const n = cur && next(cur); if (n) 
 for (const b of document.querySelectorAll(".rates button")) b.addEventListener("click", () => setRate(Number(b.dataset.rate)));
 $("#mark").addEventListener("click", () => {
   if (!cur) return;
-  const t = audio.getAttribute("src") && isFinite(audio.currentTime) ? audio.currentTime : pos(cur.id).t || 0;
+  const t = ready && audio.getAttribute("src") === cur.file && isFinite(audio.currentTime) ? audio.currentTime : pos(cur.id).t || 0;
   const list = marks();
-  list.push({ id: Date.now(), c: cur.id, t: Math.floor(t * 10) / 10 });
+  list.push({ id: Date.now(), c: cur.id, t: Math.floor(t * 10) / 10, v: voice });
   store.set("marks", list);
   renderMarks();
   msg(`Bookmark saved: ${cur.title} at ${fmt(t)}.`);
@@ -279,28 +291,68 @@ window.addEventListener("pagehide", () => save(true));
     msg("The list did not load. Check the connection.");
     return;
   }
-  for (const b of window.LIB.books) for (const c of b.chapters) { c.book = b; flat.push(c); }
-  render();
-  renderMarks();
-  markRate();
-  playIcon();
+  VOICES = window.LIB.voices || [{ id: "v5", name: "Voice 5", books: window.LIB.books }];
   const h = new URLSearchParams(location.hash.slice(1));
+  const want = h.get("v") || store.get("voice", null);
+  voice = VOICES.some((v) => v.id === want) ? want : VOICES[0].id;
+  renderVoices();
+  useVoice();
+  markRate();
   const shared = h.get("c") && flat.find((c) => c.id === h.get("c"));
   if (shared) {                                   // a shared bookmark: that chapter at that second, paused
     const t = Math.max(0, Number(h.get("t")) || 0);
     history.replaceState(null, "", location.pathname + location.search);
     start(shared, false, t);
     msg(`Shared place: ${shared.title} at ${fmt(t)}. Tap Paused to play.`);
-    return;
   }
-  const last = flat.find((c) => c.id === store.get("last", null));
+})();
+
+function renderVoices() {                         // the voice picker; hidden when the library has one voice
+  const wrap = $("#voices");
+  wrap.textContent = "";
+  wrap.hidden = VOICES.length < 2;
+  for (const v of VOICES) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.dataset.voice = v.id;
+    b.textContent = v.name;
+    b.className = v.id === voice ? "on" : "";
+    b.setAttribute("aria-pressed", v.id === voice ? "true" : "false");
+    b.addEventListener("click", () => switchVoice(v.id));
+    wrap.appendChild(b);
+  }
+}
+
+function useVoice() {                             // the chapter list, bookmarks and resume point of the voice in use
+  flat = [];
+  for (const b of books()) for (const c of b.chapters) { c.book = b; flat.push(c); }
+  cur = null;
+  render();
+  renderMarks();
+  playIcon();
+  const last = flat.find((c) => c.id === store.get(lastKey(), null));
+  $("#player").hidden = !last;
   if (last) {
     cur = last;
     const p = pos(last.id);
-    $("#player").hidden = false;
     $("#nowTitle").textContent = last.title;
     $("#nowBook").textContent = last.book.title + " · " + last.book.subtitle;
     $("#tCur").textContent = fmt(p.done ? 0 : p.t);
     $("#tLeft").textContent = "-" + fmt(last.dur - (p.done ? 0 : p.t));
+    $("#seek").value = last.dur ? Math.round((1000 * (p.done ? 0 : p.t)) / last.dur) : 0;
   }
-})();
+}
+
+function switchVoice(id) {
+  if (id === voice) return;
+  save(true);
+  audio.pause();
+  ready = false;
+  audio.removeAttribute("src");
+  audio.load();
+  voice = id;
+  store.set("voice", id);
+  renderVoices();
+  useVoice();
+  msg("");
+}

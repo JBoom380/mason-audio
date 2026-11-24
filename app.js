@@ -20,9 +20,28 @@ let ready = false;                                // the file of cur is loaded a
 let VOICES = [];                                  // library.json "voices" (John 11/23/2026: S1 and S7 next to Voice 5)
 let voice = null;                                 // the voice in use; the first voice keeps the old storage keys
 function isFirst() { return !VOICES.length || voice === VOICES[0].id; }
-function pkey(id) { return (isFirst() ? "pos:" : "pos:" + voice + ":") + id; }
-function lastKey() { return isFirst() ? "last" : "last:" + voice; }
+function first() { return VOICES.length ? VOICES[0].id : "v5"; }
+function pkey(id) { return "pos:" + id; }       // one place for each chapter in all voices (John 11/23/2026): t is in voice v
+function lastKey() { return "last"; }
 function books() { const v = VOICES.find((x) => x.id === voice); return v ? v.books : []; }
+function chap(id, v) {
+  const vo = VOICES.find((x) => x.id === v);
+  for (const b of vo ? vo.books : []) for (const c of b.chapters) if (c.id === id) return c;
+  return null;
+}
+function mapTime(id, from, to, t) {               // the same passage, and the same share of it, in the other voice
+  if (from === to) return t;
+  const a = chap(id, from), b = chap(id, to);
+  if (!a || !b) return t;
+  const sa = a.starts || [], sb = b.starts || [];
+  if (!sa.length || sa.length !== sb.length) return a.dur ? (t * b.dur) / a.dur : t;
+  let k = 0;
+  while (k + 1 < sa.length && sa[k + 1] <= t) k++;
+  if (t < sa[0]) return sb[0] * (sa[0] ? t / sa[0] : 0);
+  const ea = k + 1 < sa.length ? sa[k + 1] : a.dur, eb = k + 1 < sb.length ? sb[k + 1] : b.dur;
+  const f = ea > sa[k] ? Math.min(1, (t - sa[k]) / (ea - sa[k])) : 0;
+  return sb[k] + f * (eb - sb[k]);
+}
 
 function fmt(s) {
   s = Math.max(0, Math.floor(s || 0));
@@ -30,7 +49,10 @@ function fmt(s) {
   return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(x).padStart(2, "0");
 }
 function mins(s) { return s >= 3600 ? (s / 3600).toFixed(1) + " h" : Math.max(1, Math.round(s / 60)) + " min"; }
-function pos(id) { return store.get(pkey(id), { t: 0, done: false }); }
+function pos(id) {                               // the saved place, in the voice in use
+  const p = store.get(pkey(id), { t: 0, done: false });
+  return Object.assign({}, p, { t: mapTime(id, p.v || first(), voice, p.t || 0) });
+}
 function msg(t) { $("#msg").textContent = t || ""; }
 function rateNow() { const r = store.get("rate", 1); return RATES.includes(r) ? r : 1; }
 function markRate() {
@@ -61,7 +83,7 @@ async function share(c, t) {
   try { await navigator.clipboard.writeText(url); msg("Link copied: " + text); } catch (e) { msg(url); }
 }
 function renderMarks() {
-  const list = marks().filter((m) => (m.v || (VOICES[0] && VOICES[0].id)) === voice && flat.some((c) => c.id === m.c));
+  const list = marks().filter((m) => flat.some((c) => c.id === m.c));   // bookmarks work in every voice
   const ul = $("#markList");
   ul.textContent = "";
   $("#marks").hidden = !list.length;
@@ -72,9 +94,10 @@ function renderMarks() {
     li.innerHTML = `<button type="button" class="mk-go"><span class="mk-title"></span><span class="mk-meta"></span></button>` +
       `<button type="button" class="mk-act mk-share">Share</button><button type="button" class="mk-act mk-del">Delete</button>`;
     li.querySelector(".mk-title").textContent = c.title;
-    li.querySelector(".mk-meta").textContent = `${c.book.title} · ${fmt(m.t)}`;
-    li.querySelector(".mk-go").addEventListener("click", () => start(c, true, m.t));
-    li.querySelector(".mk-share").addEventListener("click", () => share(c, m.t));
+    const t = mapTime(c.id, m.v || first(), voice, m.t);
+    li.querySelector(".mk-meta").textContent = `${c.book.title} · ${fmt(t)}`;
+    li.querySelector(".mk-go").addEventListener("click", () => start(c, true, t));
+    li.querySelector(".mk-share").addEventListener("click", () => share(c, t));
     li.querySelector(".mk-del").addEventListener("click", () => { store.set("marks", marks().filter((x) => x.id !== m.id)); renderMarks(); });
     ul.appendChild(li);
   }
@@ -144,7 +167,7 @@ function save(force) {                           // an emptied or new file repor
   const d = isFinite(audio.duration) ? audio.duration : cur.dur;
   const done = d > 0 && audio.currentTime >= d - 10;
   const old = pos(cur.id);
-  store.set(pkey(cur.id), { t: done ? 0 : audio.currentTime, done: done || old.done, at: now });
+  store.set(pkey(cur.id), { t: done ? 0 : audio.currentTime, v: voice, done: done || old.done, at: now });
   store.set(lastKey(), cur.id);
 }
 
@@ -307,21 +330,19 @@ window.addEventListener("pagehide", () => save(true));
   }
 })();
 
-function renderVoices() {                         // the voice picker; hidden when the library has one voice
-  const wrap = $("#voices");
-  wrap.textContent = "";
-  wrap.hidden = VOICES.length < 2;
+function renderVoices() {                         // the Voice dropdown in the player (John 11/23/2026); hidden with one voice
+  const sel = $("#voiceSel");
+  sel.textContent = "";
+  $("#voiceRow").hidden = VOICES.length < 2;
   for (const v of VOICES) {
-    const b = document.createElement("button");
-    b.type = "button";
-    b.dataset.voice = v.id;
-    b.textContent = v.name;
-    b.className = v.id === voice ? "on" : "";
-    b.setAttribute("aria-pressed", v.id === voice ? "true" : "false");
-    b.addEventListener("click", () => switchVoice(v.id));
-    wrap.appendChild(b);
+    const o = document.createElement("option");
+    o.value = v.id;
+    o.textContent = v.name;
+    sel.appendChild(o);
   }
+  sel.value = voice;
 }
+$("#voiceSel").addEventListener("change", (e) => switchVoice(e.target.value));
 
 function useVoice() {                             // the chapter list, bookmarks and resume point of the voice in use
   flat = [];
@@ -343,16 +364,26 @@ function useVoice() {                             // the chapter list, bookmarks
   }
 }
 
-function switchVoice(id) {
+function switchVoice(id) {                        // the new voice goes on at the same passage (John 11/23/2026), playing if it played
   if (id === voice) return;
+  const was = cur, playing = !audio.paused;
+  const t = was ? (ready && audio.getAttribute("src") === was.file ? audio.currentTime : pos(was.id).t || 0) : 0;
   save(true);
   audio.pause();
   ready = false;
   audio.removeAttribute("src");
   audio.load();
+  const from = voice;
   voice = id;
   store.set("voice", id);
   renderVoices();
   useVoice();
   msg("");
+  if (!was) return;
+  const same = flat.find((c) => c.id === was.id);
+  if (!same) {
+    msg(`${was.title} is not ready in ${VOICES.find((v) => v.id === id).name} yet.`);
+    return;
+  }
+  start(same, playing, mapTime(was.id, from, id, t));
 }

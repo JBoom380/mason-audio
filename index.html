@@ -20,7 +20,6 @@
 <header class="top">
   <h1>Charlotte Mason</h1>
 </header>
-<div id="voices" class="voices" role="group" aria-label="Voice" hidden></div>
 <main id="main">
   <section id="cont" class="cont" hidden>
     <div class="cont-label">Continue</div>
@@ -68,6 +67,10 @@
     <button id="mark" class="mark" type="button" aria-label="Bookmark this place">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Bookmark
     </button>
+  </div>
+  <div id="voiceRow" class="ctrls3" hidden>
+    <label for="voiceSel">Voice</label>
+    <select id="voiceSel" class="voice-sel"></select>
   </div>
 </footer>
 <audio id="audio" preload="metadata" playsinline></audio>

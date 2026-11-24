@@ -646,6 +646,46 @@
      "file": "/mason-audio-v2/v2-14-book1-ch11-faith-and-duty.m4a",
      "bytes": 12694509,
      "dur": 1548.34
+    },
+    {
+     "id": "v2-15-book1-ch12-faith-and-duty",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter XII: Faith and Duty",
+     "file": "/mason-audio-v2/v2-15-book1-ch12-faith-and-duty.m4a",
+     "bytes": 8795001,
+     "dur": 1076.71
+    },
+    {
+     "id": "v2-16-book1-ch13-faith-and-duty",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter XIII: Faith and Duty",
+     "file": "/mason-audio-v2/v2-16-book1-ch13-faith-and-duty.m4a",
+     "bytes": 9555357,
+     "dur": 1163.49
+    },
+    {
+     "id": "v2-17-book1-ch14-the-heroic-impulse",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter XIV: The Heroic Impulse",
+     "file": "/mason-audio-v2/v2-17-book1-ch14-the-heroic-impulse.m4a",
+     "bytes": 7134737,
+     "dur": 872.56
+    },
+    {
+     "id": "v2-18-book1-ch15-is-it-possible",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter XV: Is It Possible?",
+     "file": "/mason-audio-v2/v2-18-book1-ch15-is-it-possible.m4a",
+     "bytes": 13752345,
+     "dur": 1683.27
+    },
+    {
+     "id": "v2-19-book1-ch16-discipline",
+     "group": "Book I. Theory. Parents and Children",
+     "title": "Chapter XVI: Discipline",
+     "file": "/mason-audio-v2/v2-19-book1-ch16-discipline.m4a",
+     "bytes": 7482961,
+     "dur": 911.78
     }
    ]
   }

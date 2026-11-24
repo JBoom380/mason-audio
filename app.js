@@ -1,10 +1,11 @@
 "use strict";
-// Private family listening page: chapter list by book, a resume point for each chapter, speed, skip, lock screen controls.
-// Positions stay on this phone (localStorage). "Add to Home Screen" keeps them safe from Safari's 7-day storage rule.
+// Family listening page: chapter list by book, a resume point for each chapter, speed, skip, bookmarks, lock screen controls.
+// Positions, speed and bookmarks stay in this browser (localStorage) until its website data is cleared. "Add to Home Screen"
+// keeps them safe from Safari's 7-day storage rule. A shared link (#c=<chapter>&t=<seconds>) opens that place, paused.
 
 const $ = (s) => document.querySelector(s);
 const audio = $("#audio");
-const RATES = [1, 1.1, 1.25, 1.5, 0.8, 0.9];
+const RATES = [0.25, 0.5, 1, 1.5, 2];             // John 11/23/2026; 1x is the approved Voice 5 pace
 const BACK_S = 15;
 const FWD_S = 30;
 const store = {
@@ -24,6 +25,51 @@ function fmt(s) {
 function mins(s) { return s >= 3600 ? (s / 3600).toFixed(1) + " h" : Math.max(1, Math.round(s / 60)) + " min"; }
 function pos(id) { return store.get("pos:" + id, { t: 0, done: false }); }
 function msg(t) { $("#msg").textContent = t || ""; }
+function rateNow() { const r = store.get("rate", 1); return RATES.includes(r) ? r : 1; }
+function markRate() {
+  for (const b of document.querySelectorAll(".rates button")) {
+    const on = Number(b.dataset.rate) === rateNow();
+    b.classList.toggle("on", on);
+    b.setAttribute("aria-pressed", on ? "true" : "false");
+  }
+}
+function setRate(r) {
+  store.set("rate", r);
+  audio.defaultPlaybackRate = r;
+  audio.playbackRate = r;
+  markRate();
+  posState();
+  if (Math.abs(audio.playbackRate - r) > 0.001) msg(`This browser does not play at ${r}x.`);
+}
+
+function marks() { return store.get("marks", []); }
+function link(c, t) { return location.origin + location.pathname + "#c=" + encodeURIComponent(c.id) + "&t=" + Math.floor(t); }
+async function share(c, t) {
+  const url = link(c, t), text = `${c.title} (${c.book.title}) at ${fmt(t)}`;
+  if (navigator.share) {
+    try { await navigator.share({ title: "Charlotte Mason audio", text, url }); return; } catch (e) { if (e && e.name === "AbortError") return; }
+  }
+  try { await navigator.clipboard.writeText(url); msg("Link copied: " + text); } catch (e) { msg(url); }
+}
+function renderMarks() {
+  const list = marks().filter((m) => flat.some((c) => c.id === m.c));
+  const ul = $("#markList");
+  ul.textContent = "";
+  $("#marks").hidden = !list.length;
+  for (const m of list.slice().reverse()) {
+    const c = flat.find((x) => x.id === m.c);
+    const li = document.createElement("li");
+    li.className = "mk";
+    li.innerHTML = `<button type="button" class="mk-go"><span class="mk-title"></span><span class="mk-meta"></span></button>` +
+      `<button type="button" class="mk-act mk-share">Share</button><button type="button" class="mk-act mk-del">Delete</button>`;
+    li.querySelector(".mk-title").textContent = c.title;
+    li.querySelector(".mk-meta").textContent = `${c.book.title} · ${fmt(m.t)}`;
+    li.querySelector(".mk-go").addEventListener("click", () => start(c, true, m.t));
+    li.querySelector(".mk-share").addEventListener("click", () => share(c, m.t));
+    li.querySelector(".mk-del").addEventListener("click", () => { store.set("marks", marks().filter((x) => x.id !== m.id)); renderMarks(); });
+    ul.appendChild(li);
+  }
+}
 
 function render() {
   const wrap = $("#books");
@@ -118,30 +164,33 @@ function posState() {
   } catch (e) { /* ignore */ }
 }
 
-function start(c, play) {
+function start(c, play, atOverride) {
   if (cur && cur.id !== c.id) save(true);
   cur = c;
   const p = pos(c.id);
-  const at = p.done ? 0 : p.t || 0;
+  const exact = atOverride != null;               // a bookmark or a shared link: that second
+  const at = exact ? atOverride : p.done ? 0 : p.t || 0;
   audio.src = c.file;
   audio.preload = "auto";
-  const rate = store.get("rate", 1);
+  const rate = rateNow();
   audio.defaultPlaybackRate = rate;
   audio.playbackRate = rate;
   audio.preservesPitch = true;
   audio.webkitPreservesPitch = true;
   const seekOnce = () => {
     audio.removeEventListener("loadedmetadata", seekOnce);
-    if (at > 1 && at < (audio.duration || c.dur) - 5) audio.currentTime = at;
-    audio.playbackRate = store.get("rate", 1);
+    if (at > (exact ? 0 : 1) && at < (audio.duration || c.dur) - (exact ? 0.5 : 5)) audio.currentTime = at;
+    audio.playbackRate = rateNow();
+    paint();
     posState();
   };
   audio.addEventListener("loadedmetadata", seekOnce);
-  if (play) audio.play().catch(() => msg("Tap play to start."));
+  if (play) audio.play().catch(() => { audio.pause(); playIcon(); if (!audio.error) msg("Tap Paused to start."); });
   $("#player").hidden = false;
   $("#nowTitle").textContent = c.title;
   $("#nowBook").textContent = c.book.title + " · " + c.book.subtitle;
-  $("#rate").textContent = store.get("rate", 1) + "x";
+  markRate();
+  playIcon();
   store.set("last", c.id);
   setSession();
   render();
@@ -162,28 +211,31 @@ function paint() {
   $("#tLeft").textContent = "-" + fmt(d - audio.currentTime);
 }
 
-function playIcon() {
-  const on = !audio.paused;
-  $("#icPlay").hidden = on;
-  $("#icPause").hidden = !on;
-  $("#play").setAttribute("aria-label", on ? "Pause" : "Play");
+function playIcon() {                            // the button shows the state: "Paused" (John 11/23/2026) or "Playing"
+  const on = !audio.paused && !audio.error;
+  $("#icPlay").toggleAttribute("hidden", on);    // an SVG element has no hidden property: set the attribute
+  $("#icPause").toggleAttribute("hidden", !on);
+  $("#playLabel").textContent = on ? "Playing" : "Paused";
+  $("#play").setAttribute("aria-label", on ? "Playing. Tap to pause" : "Paused. Tap to play");
 }
 
 $("#play").addEventListener("click", () => {
   if (!cur) return;
   if (!audio.getAttribute("src")) { start(cur, true); return; }
-  if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+  if (audio.paused) audio.play().catch(() => { audio.pause(); playIcon(); }); else audio.pause();
 });
 $("#back").addEventListener("click", () => skip(-BACK_S));
 $("#fwd").addEventListener("click", () => skip(FWD_S));
 $("#next").addEventListener("click", () => { const n = cur && next(cur); if (n) start(n, true); });
-$("#rate").addEventListener("click", () => {
-  const r = RATES[(RATES.indexOf(store.get("rate", 1)) + 1) % RATES.length];
-  store.set("rate", r);
-  audio.defaultPlaybackRate = r;
-  audio.playbackRate = r;
-  $("#rate").textContent = r + "x";
-  posState();
+for (const b of document.querySelectorAll(".rates button")) b.addEventListener("click", () => setRate(Number(b.dataset.rate)));
+$("#mark").addEventListener("click", () => {
+  if (!cur) return;
+  const t = audio.getAttribute("src") && isFinite(audio.currentTime) ? audio.currentTime : pos(cur.id).t || 0;
+  const list = marks();
+  list.push({ id: Date.now(), c: cur.id, t: Math.floor(t * 10) / 10 });
+  store.set("marks", list);
+  renderMarks();
+  msg(`Bookmark saved: ${cur.title} at ${fmt(t)}.`);
 });
 $("#seek").addEventListener("input", () => {
   seeking = true;
@@ -207,6 +259,8 @@ audio.addEventListener("ended", () => {
   if (n) start(n, true); else render();
 });
 audio.addEventListener("error", async () => {
+  audio.pause();                                  // nothing plays: the button says Paused
+  playIcon();
   try {
     const r = await fetch("library.json", { method: "HEAD", cache: "no-store" });
     if (r.status === 401) { location.href = "./"; return; }
@@ -227,6 +281,18 @@ window.addEventListener("pagehide", () => save(true));
   }
   for (const b of window.LIB.books) for (const c of b.chapters) { c.book = b; flat.push(c); }
   render();
+  renderMarks();
+  markRate();
+  playIcon();
+  const h = new URLSearchParams(location.hash.slice(1));
+  const shared = h.get("c") && flat.find((c) => c.id === h.get("c"));
+  if (shared) {                                   // a shared bookmark: that chapter at that second, paused
+    const t = Math.max(0, Number(h.get("t")) || 0);
+    history.replaceState(null, "", location.pathname + location.search);
+    start(shared, false, t);
+    msg(`Shared place: ${shared.title} at ${fmt(t)}. Tap Paused to play.`);
+    return;
+  }
   const last = flat.find((c) => c.id === store.get("last", null));
   if (last) {
     cur = last;
@@ -234,7 +300,6 @@ window.addEventListener("pagehide", () => save(true));
     $("#player").hidden = false;
     $("#nowTitle").textContent = last.title;
     $("#nowBook").textContent = last.book.title + " · " + last.book.subtitle;
-    $("#rate").textContent = store.get("rate", 1) + "x";
     $("#tCur").textContent = fmt(p.done ? 0 : p.t);
     $("#tLeft").textContent = "-" + fmt(last.dur - (p.done ? 0 : p.t));
   }

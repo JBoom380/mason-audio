@@ -896,6 +896,206 @@
      "dur": 1565.86
     }
    ]
+  },
+  {
+   "id": "v3",
+   "vol": "III",
+   "title": "School Education",
+   "subtitle": "Volume III",
+   "chapters": [
+    {
+     "id": "v3-02-preface-to-the-home-education-series",
+     "group": "Front matter",
+     "title": "Preface to the Home Education Series",
+     "file": "/mason-audio-v3/v3-02-preface-to-the-home-education-series.m4a",
+     "bytes": 6103330,
+     "dur": 754.5
+    },
+    {
+     "id": "v3-03-preface",
+     "group": "Front matter",
+     "title": "Preface",
+     "file": "/mason-audio-v3/v3-03-preface.m4a",
+     "bytes": 1892379,
+     "dur": 235.82
+    },
+    {
+     "id": "v3-05-ch01-docility-and-authority-in-the-home-and-the-school",
+     "group": "Chapters",
+     "title": "Chapter I: Docility and Authority in the Home and the School",
+     "file": "/mason-audio-v3/v3-05-ch01-docility-and-authority-in-the-home-and-the-school.m4a",
+     "bytes": 9473384,
+     "dur": 1159.72
+    },
+    {
+     "id": "v3-06-ch02-docility-and-authority-in-the-home-and-the-school",
+     "group": "Chapters",
+     "title": "Chapter II: Docility and Authority in the Home and the School",
+     "file": "/mason-audio-v3/v3-06-ch02-docility-and-authority-in-the-home-and-the-school.m4a",
+     "bytes": 9795310,
+     "dur": 1201.95
+    },
+    {
+     "id": "v3-07-ch03-masterly-inactivity",
+     "group": "Chapters",
+     "title": "Chapter III: ‘Masterly Inactivity’",
+     "file": "/mason-audio-v3/v3-07-ch03-masterly-inactivity.m4a",
+     "bytes": 8751743,
+     "dur": 1079.03
+    },
+    {
+     "id": "v3-08-ch04-some-of-the-rights-of-children-as-persons",
+     "group": "Chapters",
+     "title": "Chapter IV: Some of the Rights of Children as Persons",
+     "file": "/mason-audio-v3/v3-08-ch04-some-of-the-rights-of-children-as-persons.m4a",
+     "bytes": 6510746,
+     "dur": 800.77
+    },
+    {
+     "id": "v3-09-ch05-psychology-in-relation-to-current-thought",
+     "group": "Chapters",
+     "title": "Chapter V: Psychology in Relation to Current Thought",
+     "file": "/mason-audio-v3/v3-09-ch05-psychology-in-relation-to-current-thought.m4a",
+     "bytes": 9977892,
+     "dur": 1224.9
+    },
+    {
+     "id": "v3-10-ch06-some-educational-theories-examined",
+     "group": "Chapters",
+     "title": "Chapter VI: Some Educational Theories Examined",
+     "file": "/mason-audio-v3/v3-10-ch06-some-educational-theories-examined.m4a",
+     "bytes": 9924560,
+     "dur": 1222.24
+    },
+    {
+     "id": "v3-11-ch07-an-adequate-theory-of-education",
+     "group": "Chapters",
+     "title": "Chapter VII: An Adequate Theory of Education",
+     "file": "/mason-audio-v3/v3-11-ch07-an-adequate-theory-of-education.m4a",
+     "bytes": 9187427,
+     "dur": 1132.28
+    },
+    {
+     "id": "v3-12-ch08-certain-relations-proper-to-a-child",
+     "group": "Chapters",
+     "title": "Chapter VIII: Certain Relations Proper to a Child",
+     "file": "/mason-audio-v3/v3-12-ch08-certain-relations-proper-to-a-child.m4a",
+     "bytes": 9685649,
+     "dur": 1195.51
+    },
+    {
+     "id": "v3-13-ch09-a-great-educationalist",
+     "group": "Chapters",
+     "title": "Chapter IX: A Great Educationalist",
+     "file": "/mason-audio-v3/v3-13-ch09-a-great-educationalist.m4a",
+     "bytes": 7735473,
+     "dur": 959.36
+    },
+    {
+     "id": "v3-14-ch10-some-unconsidered-aspects-of-physical-training",
+     "group": "Chapters",
+     "title": "Chapter X: Some Unconsidered Aspects of Physical Training",
+     "file": "/mason-audio-v3/v3-14-ch10-some-unconsidered-aspects-of-physical-training.m4a",
+     "bytes": 9514127,
+     "dur": 1184.22
+    },
+    {
+     "id": "v3-15-ch11-some-unconsidered-aspects-of-intellectual-training",
+     "group": "Chapters",
+     "title": "Chapter XI: Some Unconsidered Aspects of Intellectual Training",
+     "file": "/mason-audio-v3/v3-15-ch11-some-unconsidered-aspects-of-intellectual-training.m4a",
+     "bytes": 10886093,
+     "dur": 1345.15
+    },
+    {
+     "id": "v3-16-ch12-some-unconsidered-aspects-of-moral-training",
+     "group": "Chapters",
+     "title": "Chapter XII: Some Unconsidered Aspects of Moral Training",
+     "file": "/mason-audio-v3/v3-16-ch12-some-unconsidered-aspects-of-moral-training.m4a",
+     "bytes": 8711400,
+     "dur": 1081.79
+    },
+    {
+     "id": "v3-17-ch13-some-unconsidered-aspects-of-religious-education",
+     "group": "Chapters",
+     "title": "Chapter XIII: Some Unconsidered Aspects of Religious Education",
+     "file": "/mason-audio-v3/v3-17-ch13-some-unconsidered-aspects-of-religious-education.m4a",
+     "bytes": 8613416,
+     "dur": 1065.18
+    },
+    {
+     "id": "v3-18-ch14-a-master-thought",
+     "group": "Chapters",
+     "title": "Chapter XIV: A Master-thought",
+     "file": "/mason-audio-v3/v3-18-ch14-a-master-thought.m4a",
+     "bytes": 13489107,
+     "dur": 1654.83
+    },
+    {
+     "id": "v3-19-ch15-school-books-and-how-they-make-for-education",
+     "group": "Chapters",
+     "title": "Chapter XV: School-books and How They Make for Education",
+     "file": "/mason-audio-v3/v3-19-ch15-school-books-and-how-they-make-for-education.m4a",
+     "bytes": 7739018,
+     "dur": 954.43
+    },
+    {
+     "id": "v3-20-ch16-how-to-use-school-books",
+     "group": "Chapters",
+     "title": "Chapter XVI: How to Use School-books",
+     "file": "/mason-audio-v3/v3-20-ch16-how-to-use-school-books.m4a",
+     "bytes": 6729447,
+     "dur": 830.33
+    },
+    {
+     "id": "v3-21-ch17-education-the-science-of-relations-we-are-educated-by-our-intimacies-the-prelude-and-pr-terita",
+     "group": "Chapters",
+     "title": "Chapter XVII: Education, the Science of Relations: we are Educated by Our Intimacies: the Prelude and Præterita",
+     "file": "/mason-audio-v3/v3-21-ch17-education-the-science-of-relations-we-are-educated-by-our-intimacies-the-prelude-and-pr-terita.m4a",
+     "bytes": 9048870,
+     "dur": 1129.56
+    },
+    {
+     "id": "v3-22-ch18-we-are-educated-by-our-intimacies",
+     "group": "Chapters",
+     "title": "Chapter XVIII: We are Educated by Our Intimacies",
+     "file": "/mason-audio-v3/v3-22-ch18-we-are-educated-by-our-intimacies.m4a",
+     "bytes": 7868283,
+     "dur": 979.66
+    },
+    {
+     "id": "v3-23-ch19-we-are-educated-by-our-intimacies",
+     "group": "Chapters",
+     "title": "Chapter XIX: We are Educated by Our Intimacies",
+     "file": "/mason-audio-v3/v3-23-ch19-we-are-educated-by-our-intimacies.m4a",
+     "bytes": 10111054,
+     "dur": 1258.89
+    },
+    {
+     "id": "v3-24-ch20-suggestions-towards-a-curriculum",
+     "group": "Chapters",
+     "title": "Chapter XX: Suggestions Towards a Curriculum",
+     "file": "/mason-audio-v3/v3-24-ch20-suggestions-towards-a-curriculum.m4a",
+     "bytes": 10659076,
+     "dur": 1311.92
+    },
+    {
+     "id": "v3-25-ch21-suggestions-towards-a-curriculum",
+     "group": "Chapters",
+     "title": "Chapter XXI: Suggestions Towards a Curriculum",
+     "file": "/mason-audio-v3/v3-25-ch21-suggestions-towards-a-curriculum.m4a",
+     "bytes": 9850124,
+     "dur": 1215.32
+    },
+    {
+     "id": "v3-26-ch22-suggestions-towards-a-curriculum",
+     "group": "Chapters",
+     "title": "Chapter XXII: Suggestions Towards a Curriculum",
+     "file": "/mason-audio-v3/v3-26-ch22-suggestions-towards-a-curriculum.m4a",
+     "bytes": 6709815,
+     "dur": 828.89
+    }
+   ]
   }
  ]
 }

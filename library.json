@@ -17317,6 +17317,95 @@
        "dur": 1589.15
       }
      ]
+    },
+    {
+     "id": "v3",
+     "vol": "III",
+     "title": "School Education",
+     "subtitle": "Volume III",
+     "chapters": [
+      {
+       "id": "v3-02-preface-to-the-home-education-series",
+       "group": "Book II. Essays in Practical Education",
+       "title": "Preface to the Home Education Series",
+       "file": "/mason-audio-s7-v3/v3-02-preface-to-the-home-education-series.m4a",
+       "starts": [
+        0.5,
+        4.91,
+        10.4,
+        40.17,
+        64.25,
+        92.57,
+        124.05,
+        149.59,
+        165.85,
+        189.35,
+        205.29,
+        227.86,
+        243.14,
+        267.19,
+        294.73,
+        311.64,
+        330.58,
+        345.41,
+        364.32,
+        377.5,
+        383.12,
+        387.03,
+        393.69,
+        403.27,
+        416.89,
+        427.82,
+        453.27,
+        470.45,
+        484.04,
+        496.98,
+        516.74,
+        539.92,
+        561.68,
+        586.54,
+        588.42,
+        592.46,
+        603.48,
+        608.89,
+        613.38,
+        620.28,
+        628.52,
+        635.48,
+        663.16,
+        694.47,
+        714.27,
+        725.44,
+        742.39
+       ],
+       "bytes": 6072543,
+       "dur": 753.46
+      },
+      {
+       "id": "v3-03-preface",
+       "group": "Book II. Essays in Practical Education",
+       "title": "Preface",
+       "file": "/mason-audio-s7-v3/v3-03-preface.m4a",
+       "starts": [
+        0.5,
+        3.17,
+        29.73,
+        60.42,
+        86.89,
+        103.16,
+        129.4,
+        133.82,
+        149.77,
+        168.11,
+        182.49,
+        196.83,
+        213.53,
+        216.97
+       ],
+       "bytes": 1788865,
+       "dur": 224.07
+      }
+     ]
     }
    ]
   }
